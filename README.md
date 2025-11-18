@@ -1,0 +1,1 @@
+script i made to automate parts of an English project

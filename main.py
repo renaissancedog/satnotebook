@@ -20,10 +20,12 @@ for book in books:
 for i in range(len(wordlist)):
     goodword=False
     count=0
+    list=[]
     for j in range(len(books)):
         if data[j][i]>0:
-           count+=1
+          count+=1
+          list.append(books[j])
     if count>=3:
        goodword=True
-       print(wordlist[i], "is a good word found in", count, "books")
+       print(wordlist[i], "is a word found in the books:", list)
        continue
