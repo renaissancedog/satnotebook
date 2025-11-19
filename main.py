@@ -1,8 +1,8 @@
-import re
+import re, os
 from collections import Counter
 with open("wordlist.txt") as f:
     wordlist = [line.strip() for line in f]
-books=["frankenstein","mobydick","pride","jekyllhyde","alice","littlewomen","scarletletter","crimepunish","dracula","jane"]
+books=["frankenstein","mobydick","pride","jekyllhyde","alice","littlewomen","scarletletter","crimepunish","dracula","jane","taleoftwocities"]
 w, h = len(wordlist), len(books)
 data = [[0 for x in range(w)] for y in range(h)] 
 for book in books:
@@ -17,6 +17,7 @@ for book in books:
           if (count!=0):
             data[books.index(book)][wordlist.index(word)]=count
             # print(count, word, "found in", book, books.index(book), wordlist.index(word))
+os.remove("results.txt")
 for i in range(len(wordlist)):
     goodword=False
     count=0
@@ -25,7 +26,7 @@ for i in range(len(wordlist)):
         if data[j][i]>0:
           count+=1
           list.append(books[j])
-    if count>=1:
+    if count>=3:
        goodword=True
        with open("results.txt", "a") as myfile:
         myfile.write(wordlist[i]+ " is a word found in the books: "+ str(list)+"\n")
