@@ -2,7 +2,7 @@ import re, os
 from collections import Counter
 with open("wordlist.txt") as f:
     wordlist = [line.strip() for line in f]
-books=["frankenstein","mobydick","pride","jekyllhyde","alice","littlewomen","scarletletter","crimepunish","dracula","jane","taleoftwocities"]
+books=["frankenstein","mobydick","pride","jekyllhyde","alice","littlewomen","scarletletter","crimepunish","dracula","janeeyre","taleoftwocities","huckleberry","warpeace","wuthering","gatsby"]
 w, h = len(wordlist), len(books)
 data = [[0 for x in range(w)] for y in range(h)] 
 for book in books:
@@ -31,3 +31,4 @@ for i in range(len(wordlist)):
        with open("results.txt", "a") as myfile:
         myfile.write(wordlist[i]+ " is a word found in the books: "+ str(list)+"\n")
        continue
+print(len(books),"books checked")
