@@ -25,7 +25,8 @@ for i in range(len(wordlist)):
         if data[j][i]>0:
           count+=1
           list.append(books[j])
-    if count>=3:
+    if count>=1:
        goodword=True
-       print(wordlist[i], "is a word found in the books:", list)
+       with open("results.txt", "a") as myfile:
+        myfile.write(wordlist[i]+ " is a word found in the books: "+ str(list)+"\n")
        continue
